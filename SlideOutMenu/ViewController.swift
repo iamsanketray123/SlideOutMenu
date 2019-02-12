@@ -9,13 +9,12 @@
 import UIKit
 
 class ViewController: UITableViewController {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        navigationItem.title = "Home"
-        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Open", style: .plain, target: self, action: #selector(handleOpen))
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Hide", style: .plain, target: self, action: #selector(handleHide))
+        tableView.backgroundColor = .red
+        setupNavigationItems()
     }
     
     @objc func handleOpen() {
@@ -25,7 +24,13 @@ class ViewController: UITableViewController {
     @objc func handleHide() {
         print("Hiding Menu")
     }
-
+    
+    fileprivate func setupNavigationItems() {
+        navigationItem.title = "Home"
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Open", style: .plain, target: self, action: #selector(handleOpen))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Hide", style: .plain, target: self, action: #selector(handleHide))
+    }
+    
     // When editing table view you need to override numberOfRowsInSection and cellForRowAt
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 5
@@ -36,6 +41,6 @@ class ViewController: UITableViewController {
         cell.textLabel?.text = "Row: \(indexPath.row)"
         return cell
     }
-
+    
 }
 
