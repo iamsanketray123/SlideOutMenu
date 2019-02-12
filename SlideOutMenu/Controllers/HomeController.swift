@@ -25,18 +25,23 @@ class HomeController: UITableViewController {
     
     @objc func handlePan(gesture: UIPanGestureRecognizer) {
         let translation = gesture.translation(in: view)
-        print(translation)
+        //        print(translation)
         
-        // let's drag out our menuController somehow
-        var x = translation.x
-        
-        // Makes it so you can't drag to the left side
-        x = min(menuWidth, x)
-        x = max(0, x)
-        
-        let transform = CGAffineTransform(translationX: translation.x, y: 0)
-        menuController.view.transform = transform
-        navigationController?.view.transform = transform
+        if gesture.state == .changed {
+            // let's drag out our menuController somehow
+            var x = translation.x
+            
+            // Makes it so you can't drag to the left side
+            x = min(menuWidth, x)
+            x = max(0, x)
+            
+            let transform = CGAffineTransform(translationX: translation.x, y: 0)
+            menuController.view.transform = transform
+            navigationController?.view.transform = transform
+            
+        } else if gesture.state == .ended {
+            handleOpen()
+        }
     }
     
     let menuController = MenuController()
@@ -46,8 +51,9 @@ class HomeController: UITableViewController {
     fileprivate func performAnimations(transform: CGAffineTransform) {
         UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
             self.menuController.view.transform = transform
-            self.view.transform = transform
+//            self.view.transform = transform
             //            self.navigationController?.view.transform = transform
+            self.navigationController?.view.transform = transform
         })
     }
     
