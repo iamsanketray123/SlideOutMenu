@@ -15,10 +15,15 @@ class ViewController: UITableViewController {
         
         navigationItem.title = "Home"
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Open", style: .plain, target: self, action: #selector(handleOpen))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Hide", style: .plain, target: self, action: #selector(handleHide))
     }
     
     @objc func handleOpen() {
         print("Opening Menu")
+    }
+    
+    @objc func handleHide() {
+        print("Hiding Menu")
     }
 
     // When editing table view you need to override numberOfRowsInSection and cellForRowAt
