@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UITableViewController {
+class HomeController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,7 +20,6 @@ class ViewController: UITableViewController {
     @objc func handleOpen() {
         print("Opening Menu")
         
-        // How do we add a view controller instead of just a plain UIView?
         let vc = MenuController()
         vc.view.frame = CGRect(x: 0, y: 0, width: 300, height: self.view.frame.height)
         
@@ -28,11 +27,6 @@ class ViewController: UITableViewController {
         // This makes the view span the entire device instead of under the navigation tab
         let mainWindow = UIApplication.shared.keyWindow
         mainWindow?.addSubview(vc.view)
-        
-//        let blueView = UIView()
-//        blueView.backgroundColor = .blue
-//        blueView.frame = CGRect(x: 0, y: 0, width: 200, height: 200)
-//        view.addSubview(blueView)
     }
     
     @objc func handleHide() {
