@@ -17,6 +17,18 @@ class HomeController: UITableViewController {
         setupNavigationItems()
         
         setupMenuController()
+        
+        // Pan Gesture
+        let panGesture = UIPanGestureRecognizer(target: self, action: #selector(handlePan))
+        view.addGestureRecognizer(panGesture)
+    }
+    
+    @objc func handlePan(gesture: UIPanGestureRecognizer) {
+        let translation = gesture.translation(in: view)
+        print(translation)
+        
+        // let's drag out our menuController somehow
+        menuController.view.transform = CGAffineTransform(translationX: translation.x, y: 0)
     }
     
     let menuController = MenuController()
