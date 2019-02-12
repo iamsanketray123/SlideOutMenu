@@ -17,6 +17,13 @@ class BaseSlidingController: UIViewController {
         return v
     }()
     
+    let blueView: UIView = {
+        let v = UIView()
+        v.backgroundColor = .blue
+        v.translatesAutoresizingMaskIntoConstraints = false
+        return v
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -40,12 +47,19 @@ class BaseSlidingController: UIViewController {
     
     fileprivate func setupViews() {
         view.addSubview(redView)
+        view.addSubview(blueView)
         
         // Let's go ahead and use autolayout
         NSLayoutConstraint.activate([
             redView.topAnchor.constraint(equalTo: view.topAnchor),
             redView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-            redView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
+            redView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            
+            blueView.topAnchor.constraint(equalTo: view.topAnchor),
+            blueView.trailingAnchor.constraint(equalTo: redView.leadingAnchor),
+            blueView.widthAnchor.constraint(equalToConstant: 50),
+            blueView.bottomAnchor.constraint(equalTo: redView.bottomAnchor)
+            
             ])
         
         self.redViewLeadingConstraint = redView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0)
