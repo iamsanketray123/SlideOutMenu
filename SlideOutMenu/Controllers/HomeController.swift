@@ -28,7 +28,9 @@ class HomeController: UITableViewController {
         print(translation)
         
         // let's drag out our menuController somehow
-        menuController.view.transform = CGAffineTransform(translationX: translation.x, y: 0)
+        let transform = CGAffineTransform(translationX: translation.x, y: 0)
+        menuController.view.transform = transform
+        navigationController?.view.transform = transform
     }
     
     let menuController = MenuController()
