@@ -16,6 +16,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        // Bypass the storyboard
+        window = UIWindow() // Holds all the views inside the phone
+        window?.makeKeyAndVisible()
+        window?.rootViewController = UINavigationController(rootViewController: ViewController())
+        
         return true
     }
 
