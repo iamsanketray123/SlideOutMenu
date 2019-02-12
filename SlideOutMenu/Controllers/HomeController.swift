@@ -24,6 +24,7 @@ class HomeController: UITableViewController {
     let darkCoverView = UIView()
     
     fileprivate func setupDarkCoverView() {
+        darkCoverView.alpha = 0
         darkCoverView.backgroundColor = UIColor(white: 0, alpha: 0.8)
         darkCoverView.isUserInteractionEnabled = false
         let mainWindow = UIApplication.shared.keyWindow
@@ -53,6 +54,10 @@ class HomeController: UITableViewController {
             menuController.view.transform = transform
             navigationController?.view.transform = transform
             darkCoverView.transform = transform
+            
+            let alpha = x / menuWidth
+            print(x, alpha)
+            darkCoverView.alpha = alpha
             
         } else if gesture.state == .ended {
             handleEnded(gesture: gesture)
@@ -101,6 +106,7 @@ class HomeController: UITableViewController {
             self.menuController.view.transform = transform
             self.navigationController?.view.transform = transform
             self.darkCoverView.transform = transform
+            self.darkCoverView.alpha = transform == .identity ? 0 : 1
         })
     }
     
