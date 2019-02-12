@@ -20,13 +20,16 @@ class HomeController: UITableViewController {
     @objc func handleOpen() {
         print("Opening Menu")
         
-        let vc = MenuController()
-        vc.view.frame = CGRect(x: 0, y: 0, width: 300, height: self.view.frame.height)
+        let menuController = MenuController()
+        menuController.view.frame = CGRect(x: 0, y: 0, width: 300, height: self.view.frame.height)
         
         // Grabbing entire application's window via Singleton
         // This makes the view span the entire device instead of under the navigation tab
         let mainWindow = UIApplication.shared.keyWindow
-        mainWindow?.addSubview(vc.view)
+        mainWindow?.addSubview(menuController.view)
+        
+        // We need this to be able to see the cells inside the MenuController
+        addChild(menuController)
     }
     
     @objc func handleHide() {
