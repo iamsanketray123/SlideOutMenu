@@ -41,8 +41,8 @@ class BaseSlidingController: UIViewController {
         var x = translation.x
         
         x = isMenuOpened ? x + menuWidth : x
-        
         x = min(menuWidth, x)
+        x = max(0, x)
         
         redViewLeadingConstraint.constant = x
         
@@ -85,7 +85,7 @@ class BaseSlidingController: UIViewController {
             redView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             
             blueView.topAnchor.constraint(equalTo: view.topAnchor),
-            blueView.trailingAnchor.constraint(equalTo: redView.leadingAnchor),
+            blueView.trailingAnchor.constraint(equalTo: redView.safeAreaLayoutGuide.leadingAnchor),
             blueView.widthAnchor.constraint(equalToConstant: menuWidth),
             blueView.bottomAnchor.constraint(equalTo: redView.bottomAnchor)
             
