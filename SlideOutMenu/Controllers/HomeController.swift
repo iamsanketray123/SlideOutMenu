@@ -14,11 +14,13 @@ class HomeController: UITableViewController {
         super.viewDidLoad()
         
         tableView.backgroundColor = .red
+        
         setupNavigationItems()
-        
         setupMenuController()
-        
-        // Pan Gesture
+        setupPanGesture()
+    }
+    
+    fileprivate func setupPanGesture() {
         let panGesture = UIPanGestureRecognizer(target: self, action: #selector(handlePan))
         view.addGestureRecognizer(panGesture)
     }
@@ -30,7 +32,6 @@ class HomeController: UITableViewController {
             var x = translation.x
             
             if isMenuOpened {
-                // The main navigation controller no longer gets cut off
                 x += menuWidth
             }
             
