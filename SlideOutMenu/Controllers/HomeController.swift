@@ -23,19 +23,18 @@ class HomeController: UITableViewController {
     
     fileprivate let menuWidth: CGFloat = 300
     
-    @objc func handleOpen() {
-        // Initial position
+    fileprivate func performAnimations(transform: CGAffineTransform) {
         UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
-            self.menuController.view.transform = CGAffineTransform(translationX: self.menuWidth, y: 0)
-        }, completion: nil)
+            self.menuController.view.transform = transform
+        })
+    }
+    
+    @objc func handleOpen() {
+        performAnimations(transform: CGAffineTransform(translationX: self.menuWidth, y: 0))
     }
     
     @objc func handleHide() {
-        print("Hiding Menu")
-        
-        UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
-            self.menuController.view.transform = .identity
-        }, completion: nil)
+        performAnimations(transform: .identity)
     }
     
     // MARK:- Fileprivate
