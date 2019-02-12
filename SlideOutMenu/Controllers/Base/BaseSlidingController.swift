@@ -38,12 +38,15 @@ class BaseSlidingController: UIViewController {
     
     @objc func handlePan(gesture: UIPanGestureRecognizer) {
         let translation = gesture.translation(in: view)
-        let x = translation.x
+        var x = translation.x
+        
+        x = min(menuWidth, x)
         
         redViewLeadingConstraint.constant = x
     }
     
     var redViewLeadingConstraint: NSLayoutConstraint!
+    fileprivate let menuWidth: CGFloat = 300
     
     fileprivate func setupViews() {
         view.addSubview(redView)
@@ -57,7 +60,7 @@ class BaseSlidingController: UIViewController {
             
             blueView.topAnchor.constraint(equalTo: view.topAnchor),
             blueView.trailingAnchor.constraint(equalTo: redView.leadingAnchor),
-            blueView.widthAnchor.constraint(equalToConstant: 50),
+            blueView.widthAnchor.constraint(equalToConstant: menuWidth),
             blueView.bottomAnchor.constraint(equalTo: redView.bottomAnchor)
             
             ])
