@@ -49,15 +49,37 @@ class HomeController: UITableViewController {
     fileprivate func handleEnded(gesture: UIPanGestureRecognizer) {
         let translation = gesture.translation(in: view)
         
-        if translation.x < menuWidth / 2 {
-            handleHide()
+        let velocity = gesture.velocity(in: view)
+        print("Velocity: ", velocity.x)
+        
+        if isMenuOpened {
+            if abs(velocity.x) > veloctiyOpenThreshold {
+                handleHide()
+                return
+            }
+            
+            if abs(translation.x) < menuWidth / 2 {
+                handleOpen()
+            } else {
+                handleHide()
+            }
         } else {
-            handleOpen()
+            if velocity.x > veloctiyOpenThreshold {
+                handleOpen()
+                return
+            }
+            
+            if translation.x < menuWidth / 2 {
+                handleHide()
+            } else {
+                handleOpen()
+            }
         }
     }
     
     let menuController = MenuController()
     
+    fileprivate let veloctiyOpenThreshold: CGFloat = 500
     fileprivate let menuWidth: CGFloat = 300
     fileprivate var isMenuOpened = false
     
