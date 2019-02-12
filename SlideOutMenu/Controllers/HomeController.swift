@@ -40,7 +40,11 @@ class HomeController: UITableViewController {
             navigationController?.view.transform = transform
             
         } else if gesture.state == .ended {
-            handleOpen()
+            if translation.x < menuWidth / 2 {
+                handleHide()
+            } else {
+                handleOpen()
+            }
         }
     }
     
@@ -51,7 +55,7 @@ class HomeController: UITableViewController {
     fileprivate func performAnimations(transform: CGAffineTransform) {
         UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
             self.menuController.view.transform = transform
-//            self.view.transform = transform
+            //            self.view.transform = transform
             //            self.navigationController?.view.transform = transform
             self.navigationController?.view.transform = transform
         })
