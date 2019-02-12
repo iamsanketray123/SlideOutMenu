@@ -8,7 +8,7 @@
 
 import UIKit
 
-class HomeController: UITableViewController {
+class HomeController: UITableViewController, UIGestureRecognizerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,7 +34,13 @@ class HomeController: UITableViewController {
     
     fileprivate func setupPanGesture() {
         let panGesture = UIPanGestureRecognizer(target: self, action: #selector(handlePan))
+        panGesture.delegate = self
         view.addGestureRecognizer(panGesture)
+    }
+        
+    // Make menu landscape compatible
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        menuController.view.frame = CGRect(x: 0, y: 0, width: 200, height: 500)
     }
     
     @objc func handlePan(gesture: UIPanGestureRecognizer) {
