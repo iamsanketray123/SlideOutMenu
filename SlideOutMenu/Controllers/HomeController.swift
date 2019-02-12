@@ -29,6 +29,11 @@ class HomeController: UITableViewController {
         if gesture.state == .changed {
             var x = translation.x
             
+            if isMenuOpened {
+                // The main navigation controller no longer gets cut off
+                x += menuWidth
+            }
+            
             x = min(menuWidth, x)
             x = max(0, x)
             
@@ -54,6 +59,7 @@ class HomeController: UITableViewController {
     let menuController = MenuController()
     
     fileprivate let menuWidth: CGFloat = 300
+    fileprivate var isMenuOpened = false
     
     fileprivate func performAnimations(transform: CGAffineTransform) {
         UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
@@ -65,10 +71,12 @@ class HomeController: UITableViewController {
     }
     
     @objc func handleOpen() {
+        isMenuOpened = true
         performAnimations(transform: CGAffineTransform(translationX: self.menuWidth, y: 0))
     }
     
     @objc func handleHide() {
+        isMenuOpened = false
         performAnimations(transform: .identity)
     }
     
