@@ -61,6 +61,13 @@ class BaseSlidingController: UIViewController {
             isMenuOpened = true
             redViewLeadingConstraint.constant = menuWidth
         }
+        
+        UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
+            
+            self.view.layoutIfNeeded()
+            
+        })
+        
     }
     
     var redViewLeadingConstraint: NSLayoutConstraint!
