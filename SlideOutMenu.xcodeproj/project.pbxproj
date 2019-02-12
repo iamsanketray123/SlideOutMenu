@@ -12,6 +12,7 @@
 		9627DB65221241F50039818F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9627DB63221241F50039818F /* Main.storyboard */; };
 		9627DB67221241F60039818F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9627DB66221241F60039818F /* Assets.xcassets */; };
 		9627DB6A221241F60039818F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9627DB68221241F60039818F /* LaunchScreen.storyboard */; };
+		9627DB7322124E8F0039818F /* MenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9627DB7222124E8F0039818F /* MenuController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		9627DB66221241F60039818F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9627DB69221241F60039818F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9627DB6B221241F60039818F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9627DB7222124E8F0039818F /* MenuController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +56,7 @@
 		9627DB5E221241F50039818F /* SlideOutMenu */ = {
 			isa = PBXGroup;
 			children = (
+				9627DB7122124E750039818F /* Controllers */,
 				9627DB5F221241F50039818F /* AppDelegate.swift */,
 				9627DB61221241F50039818F /* ViewController.swift */,
 				9627DB63221241F50039818F /* Main.storyboard */,
@@ -62,6 +65,14 @@
 				9627DB6B221241F60039818F /* Info.plist */,
 			);
 			path = SlideOutMenu;
+			sourceTree = "<group>";
+		};
+		9627DB7122124E750039818F /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				9627DB7222124E8F0039818F /* MenuController.swift */,
+			);
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -136,6 +147,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9627DB62221241F50039818F /* ViewController.swift in Sources */,
+				9627DB7322124E8F0039818F /* MenuController.swift in Sources */,
 				9627DB60221241F50039818F /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
