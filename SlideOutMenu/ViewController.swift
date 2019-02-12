@@ -16,6 +16,15 @@ class ViewController: UITableViewController {
         navigationItem.title = "Home"
     }
 
+    // When editing table view you need to override numberOfRowsInSection and cellForRowAt
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 5
+    }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = UITableViewCell(style: .default, reuseIdentifier: "cellId")
+        return cell
+    }
 
 }
 
