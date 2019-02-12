@@ -67,6 +67,26 @@ class BaseSlidingController: UIViewController {
         
         self.redViewLeadingConstraint = redView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0)
         redViewLeadingConstraint.isActive = true
+        
+        setupViewControllers()
+    }
+    
+    fileprivate func setupViewControllers() {
+        // Let's add back our HomeController into the redView
+        let homeController = HomeController()
+        let homeView = homeController.view!
+        homeView.translatesAutoresizingMaskIntoConstraints = false
+        
+        redView.addSubview(homeView)
+        
+        NSLayoutConstraint.activate([
+            homeView.topAnchor.constraint(equalTo: redView.topAnchor),
+            homeView.leadingAnchor.constraint(equalTo: redView.leadingAnchor),
+            homeView.bottomAnchor.constraint(equalTo: redView.bottomAnchor),
+            homeView.trailingAnchor.constraint(equalTo: redView.trailingAnchor)
+            ])
+        
+        addChild(homeController)
     }
     
 }
