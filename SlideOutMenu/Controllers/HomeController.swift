@@ -15,6 +15,11 @@ class HomeController: UITableViewController {
         
         tableView.backgroundColor = .red
         setupNavigationItems()
+        
+        menuController.view.frame = CGRect(x: -menuWidth, y: 0, width: menuWidth, height: self.view.frame.height)
+        
+        let mainWindow = UIApplication.shared.keyWindow
+        mainWindow?.addSubview(menuController.view)
     }
     
     let menuController = MenuController()
@@ -23,20 +28,9 @@ class HomeController: UITableViewController {
     
     @objc func handleOpen() {
         // Initial position
-        menuController.view.frame = CGRect(x: -menuWidth, y: 0, width: menuWidth, height: self.view.frame.height)
-        
-        // Grabbing entire application's window via Singleton
-        // This makes the view span the entire device instead of under the navigation tab
-        let mainWindow = UIApplication.shared.keyWindow
-        mainWindow?.addSubview(menuController.view)
-        
         UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
-            // Final position to animate our menuController object
-            // Transform is better to use than frame when animating
             self.menuController.view.transform = CGAffineTransform(translationX: self.menuWidth, y: 0)
         }, completion: nil)
-        
-        // We need this to be able to see the cells inside the MenuController
         addChild(menuController)
     }
     
