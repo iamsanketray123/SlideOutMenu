@@ -21,7 +21,7 @@ class MenuController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell(style: .default, reuseIdentifier: "cellId")
-        cell.textLabel?.text = "Menu"
+        cell.textLabel?.text = "Menu Item Row: \(indexPath.row)"
         return cell
     }
     

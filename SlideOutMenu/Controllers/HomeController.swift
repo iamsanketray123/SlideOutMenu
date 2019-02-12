@@ -17,10 +17,10 @@ class HomeController: UITableViewController {
         setupNavigationItems()
     }
     
+    let menuController = MenuController()
+    
     @objc func handleOpen() {
         print("Opening Menu")
-        
-        let menuController = MenuController()
         menuController.view.frame = CGRect(x: 0, y: 0, width: 300, height: self.view.frame.height)
         
         // Grabbing entire application's window via Singleton
@@ -34,6 +34,8 @@ class HomeController: UITableViewController {
     
     @objc func handleHide() {
         print("Hiding Menu")
+        menuController.view.removeFromSuperview()
+        menuController.removeFromParent()
     }
     
     fileprivate func setupNavigationItems() {
