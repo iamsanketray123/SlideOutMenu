@@ -40,13 +40,32 @@ class BaseSlidingController: UIViewController {
         let translation = gesture.translation(in: view)
         var x = translation.x
         
+        x = isMenuOpened ? x + menuWidth : x
+        
         x = min(menuWidth, x)
         
         redViewLeadingConstraint.constant = x
+        
+        if gesture.state == .ended {
+            handleEnded(gesture: gesture)
+        }
+    }
+    
+    fileprivate func handleEnded(gesture: UIPanGestureRecognizer) {
+        let translation = gesture.translation(in: view)
+        
+        if translation.x < menuWidth / 2 {
+            redViewLeadingConstraint.constant = 0
+            isMenuOpened = false
+        } else {
+            isMenuOpened = true
+            redViewLeadingConstraint.constant = menuWidth
+        }
     }
     
     var redViewLeadingConstraint: NSLayoutConstraint!
     fileprivate let menuWidth: CGFloat = 300
+    fileprivate var isMenuOpened = false
     
     fileprivate func setupViews() {
         view.addSubview(redView)
