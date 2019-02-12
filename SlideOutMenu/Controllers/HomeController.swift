@@ -18,6 +18,17 @@ class HomeController: UITableViewController {
         setupNavigationItems()
         setupMenuController()
         setupPanGesture()
+        setupDarkCoverView()
+    }
+    
+    let darkCoverView = UIView()
+    
+    fileprivate func setupDarkCoverView() {
+        darkCoverView.backgroundColor = UIColor(white: 0, alpha: 0.8)
+        darkCoverView.isUserInteractionEnabled = false
+        let mainWindow = UIApplication.shared.keyWindow
+        mainWindow?.addSubview(darkCoverView)
+        darkCoverView.frame = mainWindow?.frame ?? .zero // Will make dark screen cover whole screen
     }
     
     fileprivate func setupPanGesture() {
@@ -41,6 +52,7 @@ class HomeController: UITableViewController {
             let transform = CGAffineTransform(translationX: translation.x, y: 0)
             menuController.view.transform = transform
             navigationController?.view.transform = transform
+            darkCoverView.transform = transform
             
         } else if gesture.state == .ended {
             handleEnded(gesture: gesture)
