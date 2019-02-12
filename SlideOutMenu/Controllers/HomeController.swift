@@ -25,13 +25,10 @@ class HomeController: UITableViewController {
     
     @objc func handlePan(gesture: UIPanGestureRecognizer) {
         let translation = gesture.translation(in: view)
-        //        print(translation)
         
         if gesture.state == .changed {
-            // let's drag out our menuController somehow
             var x = translation.x
             
-            // Makes it so you can't drag to the left side
             x = min(menuWidth, x)
             x = max(0, x)
             
@@ -40,11 +37,17 @@ class HomeController: UITableViewController {
             navigationController?.view.transform = transform
             
         } else if gesture.state == .ended {
-            if translation.x < menuWidth / 2 {
-                handleHide()
-            } else {
-                handleOpen()
-            }
+            handleEnded(gesture: gesture)
+        }
+    }
+    
+    fileprivate func handleEnded(gesture: UIPanGestureRecognizer) {
+        let translation = gesture.translation(in: view)
+        
+        if translation.x < menuWidth / 2 {
+            handleHide()
+        } else {
+            handleOpen()
         }
     }
     
