@@ -13,6 +13,12 @@ struct MenuItem {
     let title: String
 }
 
+extension MenuController {
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print(indexPath)
+    }
+}
+
 class MenuController: UITableViewController {
     
     let menuItems = [
@@ -40,8 +46,8 @@ class MenuController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = MenuItemCell(style: .default, reuseIdentifier: "cellId")
         let menuItem = menuItems[indexPath.row]
-//        cell.textLabel?.text = menuItem.title
-//        cell.imageView?.image = menuItem.icon
+        cell.iconImageView.image = menuItem.icon
+        cell.titleLabel.text = menuItem.title
         return cell
     }
     

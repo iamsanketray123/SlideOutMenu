@@ -8,10 +8,16 @@
 
 import UIKit
 
+class IconImageView: UIImageView {
+    override var intrinsicContentSize: CGSize {
+        return .init(width: 44, height: 44)
+    }
+}
+
 class MenuItemCell: UITableViewCell {
     
     let iconImageView: UIImageView = {
-        let iv = UIImageView()
+        let iv = IconImageView()
         iv.contentMode = .scaleAspectFit
         iv.image = #imageLiteral(resourceName: "profile")
         return iv
@@ -19,7 +25,7 @@ class MenuItemCell: UITableViewCell {
     
     let titleLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 20, weight: .regular)
+        label.font = UIFont.systemFont(ofSize: 20, weight: .medium)
         return label
     }()
     
