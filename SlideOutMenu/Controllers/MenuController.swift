@@ -15,6 +15,18 @@ class MenuController: UITableViewController {
         tableView.backgroundColor = .blue
     }
     
+    // Adding a header to the Menu
+    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let purpleView = UIView()
+        purpleView.backgroundColor = .purple
+        return purpleView
+    }
+    
+    // Making the header taller
+    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 200
+    }
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 10
     }
