@@ -18,7 +18,7 @@ extension MenuController {
         
         //  How to access BadeSlidingController.closeMenu()
         let slidingController = UIApplication.shared.keyWindow?.rootViewController as? BaseSlidingController
-        slidingController?.closeMenu()
+        slidingController?.didSelectMenuItem(indexPath: indexPath)
     }
 }
 

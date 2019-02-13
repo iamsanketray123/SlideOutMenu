@@ -101,6 +101,26 @@ class BaseSlidingController: UIViewController {
         performAnimations()
     }
     
+    func didSelectMenuItem(indexPath: IndexPath) {
+        
+        switch indexPath.row {
+        case 0:
+            print("Show Home Screen")
+        case 1:
+            let listsController = ListsController()
+            redView.addSubview(listsController.view)
+        case 2:
+            let bookmarksController = UIViewController()
+            bookmarksController.view.backgroundColor = .purple
+            redView.addSubview(bookmarksController.view)
+        default:
+            print("Show Moments Screen")
+        }
+        
+        redView.bringSubviewToFront(darkCoverView)
+        closeMenu()
+    }
+    
     fileprivate func performAnimations() {
         UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
             self.view.layoutIfNeeded()
