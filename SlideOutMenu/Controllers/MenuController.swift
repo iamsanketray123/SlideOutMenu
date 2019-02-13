@@ -12,6 +12,7 @@ class MenuController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.separatorStyle = .none
     }
     
     // Adding a header to the Menu
@@ -32,6 +33,7 @@ class MenuController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell(style: .default, reuseIdentifier: "cellId")
         cell.textLabel?.text = "Menu Item Row: \(indexPath.row)"
+        cell.imageView?.image = UIImage(named: "profile")
         return cell
     }
     
