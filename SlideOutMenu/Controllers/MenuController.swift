@@ -17,8 +17,7 @@ class MenuController: UITableViewController {
     
     // Adding a header to the Menu
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let purpleView = UIView()
-        purpleView.backgroundColor = .purple
+        let purpleView = CustomMenuHeaderView()
         return purpleView
     }
     
