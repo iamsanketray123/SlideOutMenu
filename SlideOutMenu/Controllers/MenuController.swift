@@ -32,21 +32,16 @@ class MenuController: UITableViewController {
         let purpleView = CustomMenuHeaderView()
         return purpleView
     }
-    
-    // Making the header taller
-    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 200
-    }
-    
+        
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return menuItems.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell(style: .default, reuseIdentifier: "cellId")
+        let cell = MenuItemCell(style: .default, reuseIdentifier: "cellId")
         let menuItem = menuItems[indexPath.row]
-        cell.textLabel?.text = menuItem.title
-        cell.imageView?.image = menuItem.icon
+//        cell.textLabel?.text = menuItem.title
+//        cell.imageView?.image = menuItem.icon
         return cell
     }
     
