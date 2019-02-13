@@ -89,13 +89,13 @@ class BaseSlidingController: UIViewController {
         }
     }
     
-    fileprivate func openMenu() {
+    func openMenu() {
         isMenuOpened = true
         redViewLeadingConstraint.constant = menuWidth
         performAnimations()
     }
     
-    fileprivate func closeMenu() {
+    func closeMenu() {
         redViewLeadingConstraint.constant = 0
         isMenuOpened = false
         performAnimations()

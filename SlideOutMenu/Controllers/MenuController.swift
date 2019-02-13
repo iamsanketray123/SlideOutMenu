@@ -15,14 +15,17 @@ struct MenuItem {
 
 extension MenuController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print(indexPath)
+        
+        //  How to access BadeSlidingController.closeMenu()
+        let slidingController = UIApplication.shared.keyWindow?.rootViewController as? BaseSlidingController
+        slidingController?.closeMenu()
     }
 }
 
 class MenuController: UITableViewController {
     
     let menuItems = [
-        MenuItem(icon: #imageLiteral(resourceName: "profile"), title: "Profile"),
+        MenuItem(icon: #imageLiteral(resourceName: "profile"), title: "Home"),
         MenuItem(icon: #imageLiteral(resourceName: "lists"), title: "Lists"),
         MenuItem(icon: #imageLiteral(resourceName: "bookmarks"), title: "Bookmarks"),
         MenuItem(icon: #imageLiteral(resourceName: "moments"), title: "Moments")
