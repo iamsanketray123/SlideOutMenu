@@ -17,10 +17,14 @@ class HomeController: UITableViewController, UIGestureRecognizerDelegate {
         setupNavigationItems()
     }
 
+    // Goes into the BaseSlidingController and pulls the openMenu() function out
     @objc func handleOpen() {
+        (UIApplication.shared.keyWindow?.rootViewController as? BaseSlidingController)?.openMenu()
     }
     
+    // Goes into the BaseSlidingController and pulls the handleHide() function out
     @objc func handleHide() {
+        (UIApplication.shared.keyWindow?.rootViewController as? BaseSlidingController)?.closeMenu()
     }
 
     fileprivate func setupNavigationItems() {
