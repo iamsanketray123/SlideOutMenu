@@ -45,6 +45,13 @@ class BaseSlidingController: UIViewController {
         // Translate our red view
         let panGesture = UIPanGestureRecognizer(target: self, action: #selector(handlePan))
         view.addGestureRecognizer(panGesture)
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTapDismiss))
+        darkCoverView.addGestureRecognizer(tapGesture)
+    }
+    
+    @objc fileprivate func handleTapDismiss() {
+        closeMenu()
     }
     
     @objc func handlePan(gesture: UIPanGestureRecognizer) {
