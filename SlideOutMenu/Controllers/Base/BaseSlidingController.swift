@@ -173,7 +173,7 @@ class BaseSlidingController: UIViewController {
             redView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             
             blueView.topAnchor.constraint(equalTo: view.topAnchor),
-            blueView.trailingAnchor.constraint(equalTo: redView.safeAreaLayoutGuide.leadingAnchor),
+            blueView.trailingAnchor.constraint(equalTo: redView.leadingAnchor),
             blueView.widthAnchor.constraint(equalToConstant: menuWidth),
             blueView.bottomAnchor.constraint(equalTo: redView.bottomAnchor)
             ])
