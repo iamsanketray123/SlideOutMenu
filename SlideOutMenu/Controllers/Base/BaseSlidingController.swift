@@ -105,6 +105,7 @@ class BaseSlidingController: UIViewController {
         redViewLeadingConstraint.constant = menuWidth
         redViewTrailingConstraint.constant = menuWidth
         performAnimations()
+        setNeedsStatusBarAppearanceUpdate()
     }
     
     func closeMenu() {
@@ -112,6 +113,11 @@ class BaseSlidingController: UIViewController {
         redViewTrailingConstraint.constant = 0
         isMenuOpened = false
         performAnimations()
+        setNeedsStatusBarAppearanceUpdate()
+    }
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return isMenuOpened ? .lightContent : .default
     }
     
     func didSelectMenuItem(indexPath: IndexPath) {
@@ -143,6 +149,7 @@ class BaseSlidingController: UIViewController {
     }
     
     var rightViewController: UIViewController = UINavigationController(rootViewController: HomeController())
+    let menuController = ChatroomsMenuController()
     
     // Removes the current view controller, this is to repeated controller aka to avoid using too much memory
     fileprivate func performRightViewCleanUp() {
@@ -188,9 +195,6 @@ class BaseSlidingController: UIViewController {
     }
     
     fileprivate func setupViewControllers() {
-        // Let's add back our HomeController into the redView        
-        let menuController = MenuController()
-        
         let homeView = rightViewController.view!
         let menuView = menuController.view!
         
