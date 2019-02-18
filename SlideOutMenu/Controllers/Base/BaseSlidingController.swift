@@ -149,7 +149,7 @@ class BaseSlidingController: UIViewController {
     }
     
     var rightViewController: UIViewController = UINavigationController(rootViewController: HomeController())
-    let menuController = ChatroomsMenuController()
+    let menuController = ChatroomMenuContainerController()
     
     // Removes the current view controller, this is to repeated controller aka to avoid using too much memory
     fileprivate func performRightViewCleanUp() {

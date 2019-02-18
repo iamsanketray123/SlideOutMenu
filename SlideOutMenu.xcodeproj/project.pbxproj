@@ -13,6 +13,7 @@
 		9627DB67221241F60039818F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9627DB66221241F60039818F /* Assets.xcassets */; };
 		9627DB6A221241F60039818F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9627DB68221241F60039818F /* LaunchScreen.storyboard */; };
 		9627DB7622129DDC0039818F /* BaseSlidingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9627DB7522129DDC0039818F /* BaseSlidingController.swift */; };
+		9630DE98221A6A8900927CF0 /* ChatroomMenuContainerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9630DE97221A6A8900927CF0 /* ChatroomMenuContainerController.swift */; };
 		9631029E2217836A0036A5EE /* BookmarksController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9631029D2217836A0036A5EE /* BookmarksController.swift */; };
 		963102A0221787D40036A5EE /* MenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9631029F221787D40036A5EE /* MenuController.swift */; };
 		9647D1042213C72F00CB5425 /* ProfileImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9647D1032213C72F00CB5425 /* ProfileImageView.swift */; };
@@ -34,6 +35,7 @@
 		9627DB69221241F60039818F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9627DB6B221241F60039818F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9627DB7522129DDC0039818F /* BaseSlidingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseSlidingController.swift; sourceTree = "<group>"; };
+		9630DE97221A6A8900927CF0 /* ChatroomMenuContainerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatroomMenuContainerController.swift; sourceTree = "<group>"; };
 		9631029D2217836A0036A5EE /* BookmarksController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarksController.swift; sourceTree = "<group>"; };
 		9631029F221787D40036A5EE /* MenuController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuController.swift; sourceTree = "<group>"; };
 		9647D1032213C72F00CB5425 /* ProfileImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileImageView.swift; sourceTree = "<group>"; };
@@ -96,6 +98,7 @@
 				965FBF402214DA5F0050253E /* ListsController.swift */,
 				9631029D2217836A0036A5EE /* BookmarksController.swift */,
 				96FA9E0E2218C0F40041B129 /* ChatroomsMenuController.swift */,
+				9630DE97221A6A8900927CF0 /* ChatroomMenuContainerController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -203,6 +206,7 @@
 				9627DB60221241F50039818F /* AppDelegate.swift in Sources */,
 				96A3563522139E4000B4B5F5 /* CustomMenuHeaderView.swift in Sources */,
 				965FBF412214DA5F0050253E /* ListsController.swift in Sources */,
+				9630DE98221A6A8900927CF0 /* ChatroomMenuContainerController.swift in Sources */,
 				9627DB7622129DDC0039818F /* BaseSlidingController.swift in Sources */,
 				9631029E2217836A0036A5EE /* BookmarksController.swift in Sources */,
 			);
